@@ -161,8 +161,8 @@ public class BleServerActivity extends Activity {
         //扫描响应数据(可选，当客户端扫描时才发送)
         AdvertiseData scanResponse = new AdvertiseData.Builder()
                 .addManufacturerData(2, new byte[]{66, 66}) //设备厂商数据，自定义
-                .addServiceUuid(new ParcelUuid(UUID_SERVICE)) //服务UUID
-//                .addServiceData(new ParcelUuid(UUID_SERVICE), new byte[]{2}) //服务数据，自定义
+                //.addServiceUuid(new ParcelUuid(UUID_SERVICE)) //服务UUID
+                .addServiceData(new ParcelUuid(UUID_SERVICE), new byte[]{119, 111, 114, 108, 100}) //服务数据，自定义
                 .build();
         mBluetoothLeAdvertiser = bluetoothAdapter.getBluetoothLeAdvertiser();
         mBluetoothLeAdvertiser.startAdvertising(settings, advertiseData, scanResponse, mAdvertiseCallback);
